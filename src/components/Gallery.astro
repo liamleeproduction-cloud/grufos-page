@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import GalleryComponent from './GalleryComponent.tsx';
+
+interface Props {
+  photographer?: string;
+}
+
+const { photographer } = Astro.props;
+
+const allPhotos = await getCollection('photos');
+
+const photos = photographer
+  ? allPhotos.filter(photo => photo.data.photographer === photographer)
+  : allPhotos;
+---
+
+<GalleryComponent photos={photos} type={photographer?"personal":"intro"} client:load />

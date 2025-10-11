@@ -1,0 +1,39 @@
+@import '../global.scss';
+
+.photographer-header {
+  text-align: center;
+
+  &__name {
+    font-size: 2.25rem;
+    font-weight: bold;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__link {
+    color: #60a5fa;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.photographer-content {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.gallery-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}

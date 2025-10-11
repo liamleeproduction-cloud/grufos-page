@@ -1,0 +1,34 @@
+---
+import '../../styles/pages/slug.scss';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
+
+export async function getStaticPaths() {
+  const photographers = await getCollection('photographers');
+  return photographers.map(photographer => ({
+    params: { slug: photographer.slug },
+    props: { photographer },
+  }));
+}
+
+const { photographer } = Astro.props;
+const { Content } = await photographer.render();
+---
+
+<Layout title={photographer.data.name}>
+  <div class="photographer-header">
+    <h1 class="photographer-header__name">{photographer.data.name}</h1>
+    <div class="photographer-header__social">
+      <a href={photographer.data.social.twitter} target="_blank" class="photographer-header__link">Twitter</a>
+      <a href={photographer.data.social.instagram} target="_blank" class="photographer-header__link">Instagram</a>
+    </div>
+  </div>
+
+  <div class="photographer-content">
+    <Content />
+  </div>
+
+  <h2 class="gallery-title">Gallery</h2>
+  <Gallery photographer={photographer.data.name} />
+</Layout>
