@@ -1,13 +1,16 @@
 ---
 import '../styles/components/Footer.scss';
 import { InstagramIcon, FacebookIcon, TwitterIcon, YoutubeIcon, SendIcon } from 'astro-feather';
+
+const year = new Date().getFullYear();
+
 ---
  <footer>
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3>Shutter Squad Collective</h3>
-                    <p>Capturing life's most precious moments with passion and creativity.</p>
+                    <h3>Colectivo GRUFOS</h3>
+                    <p>Por la pasion a la fotogragia.</p>
                 </div>
                 <div>
                     <h4>Quick Links</h4>
@@ -27,18 +30,18 @@ import { InstagramIcon, FacebookIcon, TwitterIcon, YoutubeIcon, SendIcon } from 
                     </div>
                 </div>
                 <div>
-                    <h4>Newsletter</h4>
+                    <!-- <h4>Newsletter</h4>
                     <p>Subscribe to our latest updates</p>
                     <div class="newsletter-form">
                         <input type="email" placeholder="Your email">
                         <button>
                             <SendIcon />
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Shutter Squad Collective. All rights reserved.</p>
+                <p>&copy; {{year}} Colectivo GRUFOS. todos los derechos reservado.</p>
             </div>
         </div>
     </footer>
