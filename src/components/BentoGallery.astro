@@ -4,6 +4,4 @@ import BentoGalleryComponent from './BentoGalleryComponent.tsx';
 
 const allPhotos = (await getCollection('photos')).sort(() => Math.random() - 0.5).slice(0, 10);
 ---
-
-<h1 class="page-title">Welcome to our Photo Gallery</h1>
 <BentoGalleryComponent photos={allPhotos} client:load />
