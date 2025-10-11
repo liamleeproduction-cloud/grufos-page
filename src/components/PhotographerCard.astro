@@ -10,7 +10,7 @@ const { photographer } = Astro.props;
 const { slug } = photographer;
 ---
 
-<a href={`/fotografos/${slug}`} class="photographer-card">
+<a href={`/grufos-page/fotografos/${slug}`} class="photographer-card">
   <div class="photographer-card__image">
     <img src={photographer.data.image} alt={photographer.data.name} />
   </div>
