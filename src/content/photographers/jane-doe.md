@@ -1,7 +1,7 @@
 ---
 name: "Jane Doe"
 slug: "jane-doe"
-image: "https://via.placeholder.com/300"
+image: "https://picsum.photos/id/238/200/300"
 social:
   twitter: "https://twitter.com/janedoe"
   instagram: "https://instagram.com/janedoe"

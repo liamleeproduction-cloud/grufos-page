@@ -1,7 +1,7 @@
 ---
 name: "John Doe"
 slug: "john-doe"
-image: "https://via.placeholder.com/300"
+image: "https://picsum.photos/id/237/200/300"
 social:
   twitter: "https://twitter.com/johndoe"
   instagram: "https://instagram.com/johndoe"

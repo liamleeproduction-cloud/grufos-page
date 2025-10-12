@@ -9,6 +9,7 @@ const photographersCollection = defineCollection({
       twitter: z.string().optional(),
       instagram: z.string().optional(),
     }),
+    type: z.enum(["member", "hororific", "leyend"]).default("member"),
   }),
 });
 
@@ -22,6 +23,7 @@ const photosCollection = defineCollection({
     year: z.number(),
   }),
 });
+
 
 export const collections = {
   "photographers": photographersCollection,
