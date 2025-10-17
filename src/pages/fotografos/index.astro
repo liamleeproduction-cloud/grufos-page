@@ -8,7 +8,7 @@ const photographers = await getCollection('photographers');
 ---
 
 <Layout title="Photographers">
-  <h1 class="page-title">Memebers</h1>
+  <h1 class="page-title">Members</h1>
   <div class="photographers-grid">
     {photographers.map(photographer => (
       <PhotographerCard photographer={photographer} client:load />
