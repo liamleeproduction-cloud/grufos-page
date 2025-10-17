@@ -45,8 +45,12 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
     setOpen(true);
   };
 
+  const templateBento = ["default","hello","hey","happy" ];
+
+  const selected = templateBento[Math.floor(Math.random()*(3-0)+0)]
+
   return (
-    <div className="bento-gallery default">
+    <div className={`bento-gallery ${selected}`}>
       {photos.map((photo, index) => (
         <div
           className={`bento-gallery__item ${shuffledClassNames[index]}`}
