@@ -46,7 +46,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
   };
 
   return (
-    <div className="bento-gallery">
+    <div className="bento-gallery default">
       {photos.map((photo, index) => (
         <div
           className={`bento-gallery__item ${shuffledClassNames[index]}`}

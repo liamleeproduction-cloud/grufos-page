@@ -3,7 +3,7 @@
 .bento-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: repeat(3, 250px);
+  grid-auto-rows: auto;
   gap: 10px;
 
   &__item {
@@ -19,45 +19,43 @@
 
   // Best layout for 4x3 grid and 10 images
   &__item--1 {
-    grid-column: 1 / 2;
-    grid-row: span 2;
+    grid-area: p-1;
   }
 
   &__item--2 {
-    grid-column: 2 / 3;
-    grid-row: 1/ 2;
+    grid-area: p-2;
   }
 
   &__item--3 {
-    grid-column: 3 / 4;
- grid-row: span 1;
+    grid-area: p-3;
   }
 
   &__item--4 {
-    grid-column: 4 / 5;
-    grid-row: span 3;
+    grid-area: p-4;
   }
+
   &__item--5 {
-    grid-column: 1 / 2;
-    grid-row: span 2;
-    display: none; // Hide to make space for a better layout
+    grid-area: p-5;
   }
 
   &__item--6 {
- grid-column: 3 / 4;
-    grid-row: span 2;
+    grid-area: p-6;
   }
+
   &__item--7 {
- grid-column: 2 / 4;
-    grid-row: span 1;
+    grid-area: p-7;
   }
+
   &__item--8 {
-    grid-column: 2 / 3;
-    grid-row: span 1; // Fits nicely under item 2
+    grid-area: p-8;
   }
+
+  &__item--9 {
+    grid-area: p-9;
+  }
+
   &__item--10 {
-    grid-column: 2 / 3;
-    grid-row: span 1;
+    grid-area: p-10;
   }
 
   &__image {
@@ -93,4 +91,18 @@
     font-size: 0.875rem;
     margin: 0 0 6px;
   }
+}
+
+.bento-gallery{
+  &.default {
+    grid-template-areas:
+      "p-1 p-1 p-1 p-2"
+      "p-1 p-1 p-1 p-3"
+      "p-4 p-6 p-5 p-5"
+      "p-7 p-8 p-5 p-5"
+      "p-9 p-9 p-10 p-10"
+    ;
+  }
+
+
 }
