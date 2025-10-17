@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BentoGalleryComponent from './BentoGalleryComponent.tsx';
-
 const allPhotos = (await getCollection('photos')).sort(() => Math.random() - 0.5).slice(0, 10);
 ---
 <BentoGalleryComponent photos={allPhotos} client:load />

@@ -68,7 +68,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
               {photo.data.title} {photo.data.year}
             </h3>
             <p className="bento-gallery__photographer">
-              By {photo.data.photographer}
+              By <a href="{photo.data.photographer}">{photo.data.photographer}</a>
             </p>
             <p className="bento-gallery__category">{photo.data.category}</p>
           </div>
