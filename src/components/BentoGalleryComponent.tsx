@@ -23,6 +23,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
   const [shuffledClassNames, setShuffledClassNames] = React.useState<string[]>(
     [],
   );
+  const [templateBentoSelected, setTemplateBento] = React.useState<string>("default");
 
   React.useEffect(() => {
     const classNames = [
@@ -38,6 +39,13 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
       "bento-gallery__item--10",
     ];
     setShuffledClassNames(classNames);
+
+    const templateBento = ["default","hello","hey","happy" ];
+
+    const selected = templateBento[Math.floor(Math.random()*(3-0)+0)]
+
+    setTemplateBento(selected)
+
   }, []);
 
   const handleImageClick = (index: number) => {
@@ -45,12 +53,10 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
     setOpen(true);
   };
 
-  const templateBento = ["default","hello","hey","happy" ];
 
-  const selected = templateBento[Math.floor(Math.random()*(3-0)+0)]
 
   return (
-    <div className={`bento-gallery ${selected}`}>
+    <div className={`bento-gallery ${templateBentoSelected}`}>
       {photos.map((photo, index) => (
         <div
           className={`bento-gallery__item ${shuffledClassNames[index]}`}
@@ -68,7 +74,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
               {photo.data.title} {photo.data.year}
             </h3>
             <p className="bento-gallery__photographer">
-              By <a href="{photo.data.photographer}">{photo.data.photographer}</a>
+              By {photo.data.photographer}
             </p>
             <p className="bento-gallery__category">{photo.data.category}</p>
           </div>
