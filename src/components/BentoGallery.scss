@@ -5,7 +5,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
+  grid-template-rows: auto;
   gap: 10px;
 
   &__item {
@@ -95,7 +95,7 @@
   }
 }
 
-.bento-gallery{
+.bento-gallery {
   &.default {
     grid-template-areas:
       "p-1 p-1 p-2 p-2"
@@ -105,21 +105,24 @@
       "p-9 p-9 p-10 p-10"
     ;
   }
- &.hello {
+
+  &.hello {
     grid-template-areas:
       "p-1 p-4 p-2 p-3"
       "p-5 p-6 p-2 p-3"
       "p-7 p-8 p-9 p-10"
     ;
   }
- &.happy {
+
+  &.happy {
     grid-template-areas:
       "p-1 p-2 p-3 p-4"
       "p-5 p-2 p-3 p-6"
       "p-7 p-8 p-9 p-10"
     ;
   }
-&.hey {
+
+  &.hey {
     grid-template-areas:
       "p-1 p-2 p-3 p-4"
       "p-5 p-6 p-7 p-8"
@@ -128,3 +131,29 @@
   }
 }
 
+@media (max-width: 810px) {
+  .bento-gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    &.default,
+    &.hello,
+    &.happy,
+    &.hey {
+      grid-template-areas: none;
+    }
+
+    &__item--1,
+    &__item--2,
+    &__item--3,
+    &__item--4,
+    &__item--5,
+    &__item--6,
+    &__item--7,
+    &__item--8,
+    &__item--9,
+    &__item--10 {
+      grid-area: auto;
+    }
+  }
+}

@@ -3,17 +3,16 @@
 .photographer-header {
   text-align: center;
   max-width: 1500px;
+  margin: 0 auto;
 
   &__name {
-    font-size: 2.25rem;
+    font-size: 100vw;
     font-weight: bold;
     background-clip: text;
     -webkit-background-clip: text;
-    font-size-adjust: cap-height 1;
-    line-height: 125%;
+    line-height: 1;
     color: transparent;
     text-transform: uppercase;
-    font-size: 150px;
     font-weight: 700;
     background-image: url('https://picsum.photos/seed/picsum4/800/600');
   }
@@ -31,6 +30,21 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  svg {
+    width: 100%;
+
+    text {
+      fill: url(#image-fill);
+      text-transform: uppercase;
+      font-weight: bold;
+      text-anchor: middle;
+
+      tspan {
+        transition: font-size 0.5s ease-in-out;
+      }
     }
   }
 }

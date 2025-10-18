@@ -18,7 +18,19 @@ const { Content } = await photographer.render();
 
 <Layout title={photographer.data.name}>
   <div class="photographer-header">
-    <h1 class="photographer-header__name">{photographer.data.name}</h1>
+    <svg viewBox="0 0 50 30">
+      <defs>
+        <pattern id="image-fill" patternUnits="userSpaceOnUse" width="800" height="600">
+        <image href="https://picsum.photos/seed/picsum4/800/600" x="0" y="0" width="800" height="600" />
+        </pattern>
+      </defs>
+      <text>
+      {photographer.data.name.split(' ').map((word,idx) => (
+      <tspan x="50%" dy={`${1-(idx*.1)}em`}>{word}</tspan>
+        ))}
+      </text>
+    </svg>
+    <!-- <h1 class="photographer-header__name">{photographer.data.name}</h1> -->
     <div class="photographer-header__social">
       <a href={photographer.data.social.twitter} target="_blank" class="photographer-header__link">Twitter</a>
       <a href={photographer.data.social.instagram} target="_blank" class="photographer-header__link">Instagram</a>
@@ -30,5 +42,27 @@ const { Content } = await photographer.render();
   </div>
 
   <h2 class="gallery-title">Gallery</h2>
-  <Gallery photographer={photographer.data.name} />
+  <Gallery photographerSlug={photographer.slug} />
+
+  <script>
+    window.addEventListener('load', () => {
+      const svg = document.querySelector('.photographer-header svg');
+      if (!svg) return;
+
+      const tspans = svg.querySelectorAll('tspan');
+      const svgWidth = svg.viewBox.baseVal.width;
+
+      tspans.forEach(tspan => {
+        // Set a baseline font size for measurement
+        tspan.style.fontSize = '10px';
+        const textLength = tspan.getComputedTextLength();
+
+        if (textLength > 0) {
+          // Calculate the new font size to fit the width
+          const newFontSize = (svgWidth / textLength) * 10;
+          tspan.style.fontSize = `${newFontSize}px`;
+        }
+      });
+    });
+  </script>
 </Layout>
