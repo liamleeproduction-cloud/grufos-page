@@ -3,6 +3,7 @@ import '../../styles/pages/slug.scss';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Gallery from '../../components/Gallery.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const photographers = await getCollection('photographers');
@@ -37,10 +38,15 @@ const { Content } = await photographer.render();
   </div>
 
   <div class="photographer-content">
+    <div>
+      <img src={photographer.data.image} />
+    </div>
+    <div>
     <Content />
+    </div>
   </div>
 
-  <h2 class="gallery-title">Gallery</h2>
+  <h2 class="gallery-title">Galeria</h2>
   <Gallery photographer={photographer.data.name} />
 
   <script>
