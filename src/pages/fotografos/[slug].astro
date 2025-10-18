@@ -21,12 +21,12 @@ const { Content } = await photographer.render();
     <svg viewBox="0 0 50 30">
       <defs>
         <pattern id="image-fill" patternUnits="userSpaceOnUse" width="800" height="600">
-        <image href="https://picsum.photos/seed/picsum4/800/600" x="0" y="0" width="800" height="600" />
+        <image x="0" y="0" width="800" height="600" />
         </pattern>
       </defs>
       <text>
       {photographer.data.name.split(' ').map((word,idx) => (
-      <tspan x="50%" dy={`${1-(idx*.1)}em`}>{word}</tspan>
+      <tspan  x="50%" dy={`${1-(idx*.1)}em`}>{word}</tspan>
         ))}
       </text>
     </svg>
@@ -42,16 +42,23 @@ const { Content } = await photographer.render();
   </div>
 
   <h2 class="gallery-title">Gallery</h2>
-  <Gallery photographerSlug={photographer.slug} />
+  <Gallery photographer={photographer.data.name} />
 
   <script>
     window.addEventListener('load', () => {
       const svg = document.querySelector('.photographer-header svg');
       if (!svg) return;
 
-      const tspans = svg.querySelectorAll('tspan');
-      const svgWidth = svg.viewBox.baseVal.width;
+      const listOfImages = document.querySelectorAll('img');
+      const image = listOfImages[0];
 
+      const x = document.querySelector("defs image")
+      x?.setAttribute("href",image?.getAttribute('src')||"")
+
+
+      const tspans = svg.querySelectorAll('tspan');
+      const svgWidth = svg["viewBox"].baseVal.width;
+      
       tspans.forEach(tspan => {
         // Set a baseline font size for measurement
         tspan.style.fontSize = '10px';

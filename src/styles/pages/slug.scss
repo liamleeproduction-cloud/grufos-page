@@ -35,12 +35,15 @@
 
   svg {
     width: 100%;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
 
     text {
       fill: url(#image-fill);
       text-transform: uppercase;
       font-weight: bold;
       text-anchor: middle;
+
 
       tspan {
         transition: font-size 0.5s ease-in-out;
@@ -60,4 +63,13 @@
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
