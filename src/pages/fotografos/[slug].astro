@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Gallery from '../../components/Gallery.astro';
 import { Image } from 'astro:assets';
+import * as AstroFeather  from 'astro-feather';
 
 export async function getStaticPaths() {
   const photographers = await getCollection('photographers');
@@ -32,16 +33,44 @@ const { Content } = await photographer.render();
       </text>
     </svg>
     <div class="photographer-header__social">
-      <a href={photographer.data.social.twitter} target="_blank" class="photographer-header__link">Twitter</a>
-      <a href={photographer.data.social.instagram} target="_blank" class="photographer-header__link">Instagram</a>
+      {Object.entries(photographer.data.social).map(([key, value]) => {
+        let link = value;
+        if (key === 'email') {
+          link = `mailto:${value}`;
+        }
+        return (
+          <a href={link} title={key} target="_blank" class="photographer-header__link photographer-header__link--icon">
+            {
+              (() => {
+                switch (key) {
+                  case 'email':
+                    return <AstroFeather.MailIcon />;
+                  case 'instagram':
+                    return <AstroFeather.InstagramIcon />;
+                  case 'facebook':
+                    return <AstroFeather.FacebookIcon />;
+                  case 'twitter':
+                    return <AstroFeather.TwitterIcon />;
+                  case 'linkedin':
+                    return <AstroFeather.LinkedinIcon />;
+                  case 'github':
+                    return <AstroFeather.GithubIcon />;
+                  case 'website':
+                    return <AstroFeather.YoutubeIcon />;
+                  default:
+                    return <AstroFeather.LinkIcon />; // Default icon
+                }
+              })()
+            }
+ </a>
+ );
+      })}
     </div>
   </div>
 
   <div class="photographer-content">
-    <div>
-      <img src={photographer.data.image} />
-    </div>
-    <div>
+    <img alt={photographer.data.name} src={photographer.data.image} />
+    <h1>{photographer.data.name}</h1>
     <Content />
     </div>
   </div>
@@ -54,7 +83,7 @@ const { Content } = await photographer.render();
       const svg: SVGSVGElement | null = document.querySelector('.photographer-header svg');
       if (!svg) return;
 
-      const listOfImages = document.querySelectorAll('img');
+      const listOfImages = document.querySelectorAll('.gallery img');
       const image = listOfImages[Math.floor(Math.random() * listOfImages.length)];
 
       const x = document.querySelector("defs image")

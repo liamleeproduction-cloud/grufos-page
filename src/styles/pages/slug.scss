@@ -55,6 +55,16 @@
 .photographer-content {
   max-width: 800px;
   margin: 2rem auto;
+
+  img {
+    float: left;
+    margin: 0 10px 10px 0;
+  }
+
+  p {
+    margin-top: unset;
+    text-align: justify;
+  }
 }
 
 .gallery-title {
@@ -69,7 +79,19 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
+  }
+}
+
+
+@media (max-width: 500px) {  
+  .photographer-content{
+    img {
+      float: none;
+      display: block;
+      margin: 0 auto 10px;
+    }
   }
 }
