@@ -9,6 +9,11 @@ const photographers = await getCollection('photographers');
 
 <Layout title="Photographers">
   <h1 class="page-title">Members</h1>
+  <!--
+    Render a grid of photographer cards.
+    - photographers: Array of photographer objects to display.
+    - Each PhotographerCard receives a photographer prop and is loaded on the client.
+  -->
   <div class="photographers-grid content">
     {photographers.map(photographer => (
       <PhotographerCard photographer={photographer} client:load />

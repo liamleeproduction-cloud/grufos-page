@@ -31,7 +31,7 @@ const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
     <div className="gallery">
       {photos.map((photo, index) => (
         <div
-          className="gallery__item"
+          className={`gallery__item ${Math.random() > 0.5 ? 'left' : 'right'}`}
           key={index}
           onClick={() => handleImageClick(index)}
         >
@@ -53,14 +53,15 @@ const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
             </div>
           )}
         </div>
-      ))}
+      ))
+      }
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={photos.map((photo) => ({ src: photo.data.image }))}
         index={currentIndex}
       />
-    </div>
+    </div >
   );
 };
 
