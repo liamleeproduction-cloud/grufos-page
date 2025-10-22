@@ -3,7 +3,6 @@ import '../../styles/pages/slug.scss';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Gallery from '../../components/Gallery.astro';
-import { Image } from 'astro:assets';
 import * as AstroFeather  from 'astro-feather';
 
 export async function getStaticPaths() {
@@ -32,7 +31,16 @@ const { Content } = await photographer.render();
         ))}
       </text>
     </svg>
-    <div class="photographer-header__social">
+
+  </div>
+
+  <div class="photographer-content content">
+    <img alt={photographer.data.name} src={photographer.data.image} />
+    <h1>{photographer.data.name}</h1>
+    <Content />
+  </div>
+  
+  <div class="photographer-header__social">
       {Object.entries(photographer.data.social).map(([key, value]) => {
         let link = value;
         if (key === 'email') {
@@ -67,16 +75,8 @@ const { Content } = await photographer.render();
  </a>
  );
       })}
-    </div>
   </div>
-
-  <div class="photographer-content">
-    <img alt={photographer.data.name} src={photographer.data.image} />
-    <h1>{photographer.data.name}</h1>
-    <Content />
-    </div>
-  </div>
-
+  
   <h2 class="gallery-title">Galeria</h2>
   <Gallery photographer={photographer.data.name} />
 
