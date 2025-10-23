@@ -1,7 +1,8 @@
 ---
 name: "Jane Doe"
-slug: "jane-doe"
 image: "https://picsum.photos/id/238/200/300"
+uniqueId: "jane-doe"
+location: "New York, USA"
 social:
   twitter: "https://twitter.com/janedoe"
   instagram: "https://instagram.com/janedoe"

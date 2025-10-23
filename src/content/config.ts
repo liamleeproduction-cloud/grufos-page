@@ -5,7 +5,8 @@ const photographersCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     image: z.string(),
-    slug: z.string(),
+    uniqueId: z.string(),
+    location: z.string().optional(),
     social: z.object({
       twitter: z.string().optional(),
       instagram: z.string().optional(),
@@ -19,9 +20,10 @@ const photosCollection = defineCollection({
     title: z.string(),
     photographer: z.string(),
     category: z.string(),
-    slug: z.string(),
+    photographerId: z.string(),
     image: z.string(),
     year: z.number(),
+    featured: z.boolean().optional(),
   }),
 });
 

@@ -10,7 +10,7 @@ interface Photo {
     photographer: string;
     category: string;
     year: number;
-    slug: string;
+    photographerId: string;
   };
 }
 
@@ -73,7 +73,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
               {photo.data.title} {photo.data.year}
             </h3>
             <p className="bento-gallery__photographer">
-              By <a href={`/fotographer/${photo.data.slug}`}>hey</a>{photo.data.photographer}
+              By <a href={`/fotografos/${photo.data.photographerId}`}>{photo.data.photographer}</a>
             </p>
             <p className="bento-gallery__category">{photo.data.category}</p>
           </div>

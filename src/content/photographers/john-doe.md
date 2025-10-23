@@ -1,7 +1,8 @@
 ---
 name: "John Doe"
-slug: "john-doe"
 image: "https://picsum.photos/id/237/200/300"
+uniqueId: "john-doe"
+location: "London, UK"
 social:
   twitter: "https://twitter.com/johndoe"
   instagram: "https://instagram.com/johndoe"
