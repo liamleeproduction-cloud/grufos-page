@@ -31,9 +31,10 @@ const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
 
 
   useEffect(() => {
-    const ori = Array(photos.length).map(() => Math.random() > 0.5 ? 'left' : 'right');
-    setOrientation(ori)
-  }, [])
+    const ori = Array(photos.length).fill('left').map(() => Math.random() > 0.5 ? 'left' : 'right');
+    setOrientation(ori);
+    console.log(orientation);
+  }, [photos])
 
 
 
