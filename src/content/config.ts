@@ -5,11 +5,11 @@ const photographersCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     image: z.string(),
+    slug: z.string(),
     social: z.object({
       twitter: z.string().optional(),
       instagram: z.string().optional(),
     }),
-    type: z.enum(["member", "hororific", "leyend"]).default("member"),
   }),
 });
 
@@ -19,11 +19,11 @@ const photosCollection = defineCollection({
     title: z.string(),
     photographer: z.string(),
     category: z.string(),
+    slug: z.string(),
     image: z.string(),
     year: z.number(),
   }),
 });
-
 
 export const collections = {
   "photographers": photographersCollection,
