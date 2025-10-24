@@ -1,0 +1,35 @@
+---
+import * as AstroFeather from 'astro-feather';
+import './SocialMedia.scss';
+
+
+export interface Props {
+  social: { [key: string]: string };
+}
+
+const { social } = Astro.props;
+
+const socialIcons: Record<string, any> = {
+  email: AstroFeather.MailIcon,
+  instagram: AstroFeather.InstagramIcon,
+  facebook: AstroFeather.FacebookIcon,
+  twitter: AstroFeather.TwitterIcon,
+  linkedin: AstroFeather.LinkedinIcon,
+  github: AstroFeather.GithubIcon,
+  youtube: AstroFeather.YoutubeIcon,
+  website: AstroFeather.BookOpenIcon,
+};
+---
+
+<div class="social-media">
+  {Object.entries(social).map(([key, value]) => {
+    const Icon = socialIcons[key] || AstroFeather.LinkIcon;
+    const link = key === 'email' ? `mailto:${value}` : value;
+    return (
+      <a href={link} title={key} target="_blank" class="social-media__link">
+        <Icon />
+      </a>
+    );
+  })}
+</div>
+ 

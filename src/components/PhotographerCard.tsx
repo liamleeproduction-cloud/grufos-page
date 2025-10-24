@@ -20,7 +20,7 @@ const PhotographerCard: React.FC<Props> = ({ photographer }) => {
         <img src={image} alt={name} />
       </div>
       <h2 className="photographer-card__name">{name}</h2>
-      {location ? <h3>{location}</h3> : null}
+      {location ? <p>{location}</p> : null}
     </a>
   );
 };

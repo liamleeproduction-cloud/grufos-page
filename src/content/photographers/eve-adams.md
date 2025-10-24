@@ -1,5 +1,5 @@
 ---
-name: "Olivier J. Flambert"
+name: "Olivier Flambert"
 image: "https://picsum.photos/id/243/200/300"
 uniqueId: "eve-adams"
 location: "Sydney, Australia"
