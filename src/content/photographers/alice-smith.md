@@ -6,6 +6,10 @@ location: "Paris, France"
 social:
   twitter: "https://twitter.com/alicesmith"
   instagram: "https://instagram.com/alicesmith"
+  email: "alice.smith@example.com"
+  facebook: "https://facebook.com/alicesmith"
+  linkedin: "https://linkedin.com/in/alicesmith"
+  website: "https://alicesmith.com"
 ---
 
 ### About Alice Smith

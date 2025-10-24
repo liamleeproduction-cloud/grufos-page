@@ -6,6 +6,10 @@ location: "London, UK"
 social:
   twitter: "https://twitter.com/johndoe"
   instagram: "https://instagram.com/johndoe"
+  email: "john.doe@example.com"
+  facebook: "https://facebook.com/johndoe"
+  linkedin: "https://linkedin.com/in/johndoe"
+  website: "https://johndoe.com"
 ---
 
 ### About John Doe

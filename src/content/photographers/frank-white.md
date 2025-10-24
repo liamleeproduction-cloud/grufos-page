@@ -6,6 +6,10 @@ location: "Rio, Brazil"
 social:
   twitter: "https://twitter.com/frankwhite"
   instagram: "https://instagram.com/frankwhite"
+  email: "frank.white@example.com"
+  facebook: "https://facebook.com/frankwhite"
+  linkedin: "https://linkedin.com/in/frankwhite"
+  website: "https://frankwhite.com"
 ---
 
 ### About Frank White

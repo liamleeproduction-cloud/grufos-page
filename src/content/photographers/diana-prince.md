@@ -6,6 +6,10 @@ location: "Rome, Italy"
 social:
   twitter: "https://twitter.com/dianaprince"
   instagram: "https://instagram.com/dianaprince"
+  email: "fausto.ortiz@example.com"
+  facebook: "https://facebook.com/faustoortiz"
+  linkedin: "https://linkedin.com/in/faustoortiz"
+  website: "https://faustoortiz.com"
 ---
 
 ### About Diana Prince

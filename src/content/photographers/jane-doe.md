@@ -6,6 +6,10 @@ location: "New York, USA"
 social:
   twitter: "https://twitter.com/janedoe"
   instagram: "https://instagram.com/janedoe"
+  email: "jane.doe@example.com"
+  facebook: "https://facebook.com/janedoe"
+  linkedin: "https://linkedin.com/in/janedoe"
+  website: "https://janedoe.com"
 ---
 
 ### About Jane Doe

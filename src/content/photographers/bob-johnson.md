@@ -6,6 +6,10 @@ location: "Berlin, Germany"
 social:
   twitter: "https://twitter.com/bobjohnson"
   instagram: "https://instagram.com/bobjohnson"
+  email: "bob.johnson@example.com"
+  facebook: "https://facebook.com/bobjohnson"
+  linkedin: "https://linkedin.com/in/bobjohnson"
+  website: "https://bobjohnson.com"
 ---
 
 ### About Bob Johnson

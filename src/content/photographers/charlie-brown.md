@@ -6,6 +6,10 @@ location: "Tokyo, Japan"
 social:
   twitter: "https://twitter.com/charliebrown"
   instagram: "https://instagram.com/charliebrown"
+  email: "felix.sepulveda@example.com"
+  facebook: "https://facebook.com/felixsepulveda"
+  linkedin: "https://linkedin.com/in/felixsepulveda"
+  website: "https://felixsepulveda.com"
 ---
 
 ### About Charlie Brown

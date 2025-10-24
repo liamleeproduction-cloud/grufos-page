@@ -10,6 +10,10 @@ const photographersCollection = defineCollection({
     social: z.object({
       twitter: z.string().optional(),
       instagram: z.string().optional(),
+      email: z.string().optional(),
+      facebook: z.string().optional(),
+      linkedin: z.string().optional(),
+      website: z.string().optional(),
     }),
   }),
 });

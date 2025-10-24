@@ -6,6 +6,10 @@ location: "Sydney, Australia"
 social:
   twitter: "https://twitter.com/eveadams"
   instagram: "https://instagram.com/eveadams"
+  email: "olivier.flambert@example.com"
+  facebook: "https://facebook.com/olivierflambert"
+  linkedin: "https://linkedin.com/in/olivierflambert"
+  website: "https://olivierflambert.com"
 ---
 
 ### About Eve Adams
