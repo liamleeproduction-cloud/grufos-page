@@ -5,6 +5,7 @@
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease-in-out;
+  margin: 20px;
 
   &:hover {
     transform: scale(1.05);
@@ -22,6 +23,16 @@
       height: 100%;
       object-fit: cover;
     }
+
+
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
   }
 
   &__name {

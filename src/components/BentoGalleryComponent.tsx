@@ -10,6 +10,7 @@ interface Photo {
     photographer: string;
     category: string;
     year: number;
+    photographerId: string;
   };
 }
 
@@ -40,9 +41,9 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
     ];
     setShuffledClassNames(classNames);
 
-    const templateBento = ["default","hello","hey","happy" ];
+    const templateBento = ["default", "hello", "hey", "happy"];
 
-    const selected = templateBento[Math.floor(Math.random()*(3-0)+0)]
+    const selected = templateBento[Math.floor(Math.random() * (3 - 0) + 0)]
 
     setTemplateBento(selected)
 
@@ -52,8 +53,6 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
     setCurrentIndex(index);
     setOpen(true);
   };
-
-
 
   return (
     <div className={`bento-gallery ${templateBentoSelected}`}>
@@ -74,7 +73,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
               {photo.data.title} {photo.data.year}
             </h3>
             <p className="bento-gallery__photographer">
-              By {photo.data.photographer}
+              By <a href={`/fotografos/${photo.data.photographerId}`}>{photo.data.photographer}</a>
             </p>
             <p className="bento-gallery__category">{photo.data.category}</p>
           </div>

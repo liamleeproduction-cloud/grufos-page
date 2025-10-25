@@ -3,7 +3,7 @@ import '../../styles/pages/slug.scss';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Gallery from '../../components/Gallery.astro';
-import * as AstroFeather  from 'astro-feather';
+import SocialMedia  from '../../components/SocialMedia/SocialMedia.astro'
 
 export async function getStaticPaths() {
   const photographers = await getCollection('photographers');
@@ -19,15 +19,15 @@ const { Content } = await photographer.render();
 
 <Layout title={photographer.data.name}>
   <div class="photographer-header">
-    <svg viewBox="0 0 50 30">
+    <svg viewBox="0 0 50 50">
       <defs>
         <pattern id="image-fill" patternUnits="userSpaceOnUse" width="100%" height="100%">
-          <image x="5" y="2" width="40" height="25" preserveAspectRatio="xMidYMid slice"/>
+          <image width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/>
         </pattern>
       </defs>
-      <text>
+      <text y="50%" dominant-baseline="middle">
       {photographer.data.name.split(' ').map((word,idx) => (
-      <tspan  x="50%" dy={`${1-(idx*.1)}em`}>{word}</tspan>
+      <tspan  x="50%" dy={idx === 0 ? "0em" : "1em"}>{word}</tspan>
         ))}
       </text>
     </svg>
@@ -40,72 +40,54 @@ const { Content } = await photographer.render();
     <Content />
   </div>
   
-  <div class="photographer-header__social">
-      {Object.entries(photographer.data.social).map(([key, value]) => {
-        let link = value;
-        if (key === 'email') {
-          link = `mailto:${value}`;
-        }
-        return (
-          <a href={link} title={key} target="_blank" class="photographer-header__link photographer-header__link--icon">
-            {
-              (() => {
-                switch (key) {
-                  case 'email':
-                    return <AstroFeather.MailIcon />;
-                  case 'instagram':
-                    return <AstroFeather.InstagramIcon />;
-                  case 'facebook':
-                    return <AstroFeather.FacebookIcon />;
-                  case 'twitter':
-                    return <AstroFeather.TwitterIcon />;
-                  case 'linkedin':
-                    return <AstroFeather.LinkedinIcon />;
-                  case 'github':
-                    return <AstroFeather.GithubIcon />;
-                  case 'youtube':
-                    return <AstroFeather.YoutubeIcon />;
-                  case 'website':
-                    return <AstroFeather.BookOpenIcon />;
-                  default:
-                    return <AstroFeather.LinkIcon />; // Default icon
-                }
-              })()
-            }
- </a>
- );
-      })}
-  </div>
   
+  <SocialMedia social={photographer.data.social} />
+
   <h2 class="gallery-title">Galeria</h2>
-  <Gallery photographer={photographer.data.name} />
+  <Gallery photographer={photographer.data.uniqueId} />
 
   <script>
-    window.addEventListener('load', () => {
-      const svg: SVGSVGElement | null = document.querySelector('.photographer-header svg');
-      if (!svg) return;
-
-      const listOfImages = document.querySelectorAll('.gallery img');
-      const image = listOfImages[Math.floor(Math.random() * listOfImages.length)];
-
-      const x = document.querySelector("defs image")
-      x?.setAttribute("href",image?.getAttribute('src')||"")
-
-
-      const tspans = svg.querySelectorAll<SVGTSpanElement>('tspan');
-      const svgWidth = svg["viewBox"].baseVal.width;
-      
-      tspans.forEach(tspan => {
-        // Set a baseline font size for measurement
-        tspan.style.fontSize = '10px';
-        const textLength = tspan.getComputedTextLength();
-
-        if (textLength > 0) {
-          // Calculate the new font size to fit the width
-          const newFontSize = (svgWidth / textLength) * 10;
-          tspan.style.fontSize = `${newFontSize}px`;
-        }
-      });
-    });
+        window.addEventListener('load', () => {
+          const svg: SVGSVGElement | null = document.querySelector('.photographer-header svg');
+          if (!svg) return;
+    
+          const listOfImages = document.querySelectorAll('.gallery img');
+          const image = listOfImages[Math.floor(Math.random() * listOfImages.length)];
+    
+          const x = document.querySelector("defs image")
+          x?.setAttribute("href",image?.getAttribute('src')||"")
+    
+          const tspans = svg.querySelectorAll<SVGTSpanElement>('tspan');
+          const svgWidth = svg.viewBox.baseVal.width; // This is 50
+    
+          let maxFontSize = 0;
+    
+          tspans.forEach(tspan => {
+            tspan.style.fontSize = '10px'; // Baseline for measurement
+            const textLength = tspan.getComputedTextLength();
+    
+            if (textLength > 0) {
+              const newFontSize = (svgWidth / textLength) * 10; // Calculate font size relative to viewBox width
+              tspan.style.fontSize = `${newFontSize}px`;
+              if (newFontSize > maxFontSize) {
+                maxFontSize = newFontSize;
+              }
+            }
+          });
+    
+          // Calculate total height based on maxFontSize and number of lines
+          // Assuming a line-height of 1.2em for stacking
+          const totalTextHeight = maxFontSize * tspans.length * 1.2; // 1.2 is an arbitrary line-height factor
+    
+          // Update viewBox height
+          const currentViewBox = svg.viewBox.baseVal;
+          svg.setAttribute('viewBox', `0 0 ${currentViewBox.width} ${totalTextHeight}`);
+    
+          // Adjust text y position to be centered in the new viewBox
+          const textElement = svg.querySelector('text');
+          if (textElement) {
+            textElement.setAttribute('y', `${totalTextHeight / 2}`);
+          }
+        });
   </script>
 </Layout>

@@ -1,19 +1,26 @@
 import React from 'react';
 import './PhotographerCard.scss';
-import type { CollectionEntry } from 'astro:content';
+
+interface Photographer {
+  name: string;
+  uniqueId: string;
+  image: string;
+  location: string;
+}
 
 interface Props {
-  photographer: CollectionEntry<'photographers'>;
+  photographer: Photographer;
 }
 
 const PhotographerCard: React.FC<Props> = ({ photographer }) => {
-  const { slug } = photographer;
+  const { uniqueId, name, image, location } = photographer;
   return (
-    <a href={`/fotografos/${slug}`} className="photographer-card">
+    <a href={`/fotografos/${uniqueId}`} className="photographer-card">
       <div className="photographer-card__image">
-        <img src={photographer.data.image} alt={photographer.data.name} />
+        <img src={image} alt={name} />
       </div>
-      <h2 className="photographer-card__name">{photographer.data.name}</h2>
+      <h2 className="photographer-card__name">{name}</h2>
+      {location ? <p>{location}</p> : null}
     </a>
   );
 };

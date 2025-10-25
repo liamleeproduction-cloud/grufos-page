@@ -16,6 +16,7 @@
     //Make  the gallery look likes a photo: 
     border-radius: 3px;
     border: 6px solid whitesmoke;
+    transition: transform 0.4s ease-in-out;
 
     &:hover .gallery__info {
       opacity: 1;

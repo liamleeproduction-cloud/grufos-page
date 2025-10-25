@@ -1,18 +1,18 @@
 ---
-name: "John Doe"
-image: "https://picsum.photos/id/237/200/300"
-uniqueId: "john-doe"
-location: "London, UK"
+name: "Frank White"
+image: "https://picsum.photos/id/244/200/300"
+uniqueId: "frank-white"
+location: "Rio, Brazil"
 social:
-  twitter: "https://twitter.com/johndoe"
-  instagram: "https://instagram.com/johndoe"
-  email: "john.doe@example.com"
-  facebook: "https://facebook.com/johndoe"
-  linkedin: "https://linkedin.com/in/johndoe"
-  website: "https://johndoe.com"
+  twitter: "https://twitter.com/frankwhite"
+  instagram: "https://instagram.com/frankwhite"
+  email: "frank.white@example.com"
+  facebook: "https://facebook.com/frankwhite"
+  linkedin: "https://linkedin.com/in/frankwhite"
+  website: "https://frankwhite.com"
 ---
 
-### About John Doe
+### About Frank White
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dui quis arcu ultricies efficitur imperdiet finibus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae purus ac arcu feugiat ornare eu eu erat. Vestibulum ex orci, hendrerit ac metus a, finibus luctus turpis.
 
