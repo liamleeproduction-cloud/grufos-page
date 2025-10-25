@@ -15,7 +15,7 @@ interface Props {
 const PhotographerCard: React.FC<Props> = ({ photographer }) => {
   const { uniqueId, name, image, location } = photographer;
   return (
-    <a href={`/fotografos/${uniqueId}`} className="photographer-card">
+    <a href={`/grufos-page/fotografos/${uniqueId}`} className="photographer-card">
       <div className="photographer-card__image">
         <img src={image} alt={name} />
       </div>
