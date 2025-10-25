@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  // site: "https://liamleeproduction-cloud.github.io",
-  base: "/",
+  site: "https://liamleeproduction-cloud.github.io",
+  base: "/grufos-page/",
   // trailingSlash: "always"
 });
