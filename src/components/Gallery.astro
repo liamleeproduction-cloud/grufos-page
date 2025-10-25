@@ -11,7 +11,7 @@ const { photographer } = Astro.props;
 const allPhotos = await getCollection('photos');
 
 const photos = photographer
-  ? allPhotos.filter(photo => photo.data.photographer === photographer)
+  ? allPhotos.filter(photo => photo.data.photographerId === photographer)
   : allPhotos;
 ---
 

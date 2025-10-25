@@ -1,18 +1,18 @@
 ---
-name: "John Doe"
-image: "https://picsum.photos/id/237/200/300"
-uniqueId: "john-doe"
-location: "London, UK"
+name: "Alice Smith"
+image: "https://picsum.photos/id/239/200/300"
+uniqueId: "alice-smith"
+location: "Paris, France"
 social:
-  twitter: "https://twitter.com/johndoe"
-  instagram: "https://instagram.com/johndoe"
-  email: "john.doe@example.com"
-  facebook: "https://facebook.com/johndoe"
-  linkedin: "https://linkedin.com/in/johndoe"
-  website: "https://johndoe.com"
+  twitter: "https://twitter.com/alicesmith"
+  instagram: "https://instagram.com/alicesmith"
+  email: "alice.smith@example.com"
+  facebook: "https://facebook.com/alicesmith"
+  linkedin: "https://linkedin.com/in/alicesmith"
+  website: "https://alicesmith.com"
 ---
 
-### About John Doe
+### About Alice Smith
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dui quis arcu ultricies efficitur imperdiet finibus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae purus ac arcu feugiat ornare eu eu erat. Vestibulum ex orci, hendrerit ac metus a, finibus luctus turpis.
 

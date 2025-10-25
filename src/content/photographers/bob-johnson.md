@@ -1,18 +1,18 @@
 ---
-name: "John Doe"
-image: "https://picsum.photos/id/237/200/300"
-uniqueId: "john-doe"
-location: "London, UK"
+name: "Bob Johnson"
+image: "https://picsum.photos/id/240/200/300"
+uniqueId: "bob-johnson"
+location: "Berlin, Germany"
 social:
-  twitter: "https://twitter.com/johndoe"
-  instagram: "https://instagram.com/johndoe"
-  email: "john.doe@example.com"
-  facebook: "https://facebook.com/johndoe"
-  linkedin: "https://linkedin.com/in/johndoe"
-  website: "https://johndoe.com"
+  twitter: "https://twitter.com/bobjohnson"
+  instagram: "https://instagram.com/bobjohnson"
+  email: "bob.johnson@example.com"
+  facebook: "https://facebook.com/bobjohnson"
+  linkedin: "https://linkedin.com/in/bobjohnson"
+  website: "https://bobjohnson.com"
 ---
 
-### About John Doe
+### About Bob Johnson
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dui quis arcu ultricies efficitur imperdiet finibus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae purus ac arcu feugiat ornare eu eu erat. Vestibulum ex orci, hendrerit ac metus a, finibus luctus turpis.
 

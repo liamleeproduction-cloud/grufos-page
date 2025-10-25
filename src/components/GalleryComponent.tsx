@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import "./GalleryComponent.scss";
@@ -21,17 +21,28 @@ interface GalleryProps {
 const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
   const [open, setOpen] = React.useState(false);
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [orientation, setOrientation] = React.useState<string[]>([])
+
 
   const handleImageClick = (index: number) => {
     setCurrentIndex(index);
     setOpen(true);
   };
 
+
+  useEffect(() => {
+    const ori = Array(photos.length).fill('left').map(() => Math.random() > 0.5 ? 'left' : 'right');
+    setOrientation(ori);
+    console.log(orientation);
+  }, [photos])
+
+
+
   return (
     <div className="gallery">
       {photos.map((photo, index) => (
         <div
-          className="gallery__item"
+          className={`gallery__item ${orientation[index]}`}
           key={index}
           onClick={() => handleImageClick(index)}
         >
@@ -46,21 +57,19 @@ const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
               <h3 className="gallery__title">
                 {photo.data.title} {photo.data.year}
               </h3>
-              <p className="gallery__photographer">
-                By {photo.data.photographer}
-              </p>
               <p className="gallery__category">{photo.data.category}</p>
             </div>
           )}
         </div>
-      ))}
+      ))
+      }
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={photos.map((photo) => ({ src: photo.data.image }))}
         index={currentIndex}
       />
-    </div>
+    </div >
   );
 };
 

@@ -1,18 +1,18 @@
 ---
-name: "John Doe"
-image: "https://picsum.photos/id/237/200/300"
-uniqueId: "john-doe"
-location: "London, UK"
+name: "Fausto Ortiz"
+image: "https://picsum.photos/id/242/200/300"
+uniqueId: "diana-prince"
+location: "Rome, Italy"
 social:
-  twitter: "https://twitter.com/johndoe"
-  instagram: "https://instagram.com/johndoe"
-  email: "john.doe@example.com"
-  facebook: "https://facebook.com/johndoe"
-  linkedin: "https://linkedin.com/in/johndoe"
-  website: "https://johndoe.com"
+  twitter: "https://twitter.com/dianaprince"
+  instagram: "https://instagram.com/dianaprince"
+  email: "fausto.ortiz@example.com"
+  facebook: "https://facebook.com/faustoortiz"
+  linkedin: "https://linkedin.com/in/faustoortiz"
+  website: "https://faustoortiz.com"
 ---
 
-### About John Doe
+### About Diana Prince
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dui quis arcu ultricies efficitur imperdiet finibus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae purus ac arcu feugiat ornare eu eu erat. Vestibulum ex orci, hendrerit ac metus a, finibus luctus turpis.
 
@@ -23,3 +23,4 @@ Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
 ### Get In Touch
 
 Vivamus at sagittis orci, id porta est. Pellentesque ultricies eros leo, vel facilisis odio porta quis. Vestibulum pretium tortor vitae convallis finibus.
+
