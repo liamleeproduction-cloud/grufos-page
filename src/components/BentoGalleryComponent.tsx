@@ -77,6 +77,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
             </p>
             <p className="bento-gallery__category">{photo.data.category}</p>
           </div>
+          
         </div>
       ))}
       <Lightbox
