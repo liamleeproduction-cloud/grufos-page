@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import "./GalleryComponent.scss";
+import { getCustomPhotos, PHOTOS_UPDATE_EVENT } from "../utils/profileStorage";
 
 interface Photo {
   data: {
@@ -16,31 +17,63 @@ interface Photo {
 interface GalleryProps {
   photos: Photo[];
   type: "personal" | "intro";
+  photographerId?: string;
 }
 
-const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
-  const [open, setOpen] = React.useState(false);
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-  const [orientation, setOrientation] = React.useState<string[]>([])
+const GalleryComponent: React.FC<GalleryProps> = ({ photos: initialPhotos, type, photographerId }) => {
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [orientation, setOrientation] = useState<string[]>([]);
+  const [displayPhotos, setDisplayPhotos] = useState<Photo[]>(initialPhotos);
 
+  useEffect(() => {
+    const loadPhotos = () => {
+      if (photographerId) {
+        const custom = getCustomPhotos(photographerId);
+        if (custom && custom.length > 0) {
+          const customConverted: Photo[] = custom.map((cp) => ({
+            data: {
+              image: cp.image,
+              title: cp.title,
+              photographer: cp.photographer,
+              category: cp.category,
+              year: cp.year,
+            },
+          }));
+          setDisplayPhotos([...customConverted, ...initialPhotos]);
+          return;
+        }
+      }
+      setDisplayPhotos(initialPhotos);
+    };
+
+    loadPhotos();
+
+    const handleUpdate = () => {
+      loadPhotos();
+    };
+
+    window.addEventListener(PHOTOS_UPDATE_EVENT, handleUpdate);
+    return () => {
+      window.removeEventListener(PHOTOS_UPDATE_EVENT, handleUpdate);
+    };
+  }, [photographerId, initialPhotos]);
+
+  useEffect(() => {
+    const ori = Array(displayPhotos.length)
+      .fill("left")
+      .map(() => (Math.random() > 0.5 ? "left" : "right"));
+    setOrientation(ori);
+  }, [displayPhotos]);
 
   const handleImageClick = (index: number) => {
     setCurrentIndex(index);
     setOpen(true);
   };
 
-
-  useEffect(() => {
-    const ori = Array(photos.length).fill('left').map(() => Math.random() > 0.5 ? 'left' : 'right');
-    setOrientation(ori);
-    console.log(orientation);
-  }, [photos])
-
-
-
   return (
     <div className="gallery">
-      {photos.map((photo, index) => (
+      {displayPhotos.map((photo, index) => (
         <div
           className={`gallery__item ${orientation[index]}`}
           key={index}
@@ -61,15 +94,14 @@ const GalleryComponent: React.FC<GalleryProps> = ({ photos, type }) => {
             </div>
           )}
         </div>
-      ))
-      }
+      ))}
       <Lightbox
         open={open}
         close={() => setOpen(false)}
-        slides={photos.map((photo) => ({ src: photo.data.image }))}
+        slides={displayPhotos.map((photo) => ({ src: photo.data.image }))}
         index={currentIndex}
       />
-    </div >
+    </div>
   );
 };
 

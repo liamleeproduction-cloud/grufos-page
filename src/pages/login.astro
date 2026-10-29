@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LoginForm from '../components/LoginForm.tsx';
+import { getCollection } from 'astro:content';
+
+const photographers = await getCollection('photographers');
+
+const photographersData = photographers.map((p) => ({
+  uniqueId: p.data.uniqueId,
+  name: p.data.name,
+  email: p.data.social?.email || `${p.data.uniqueId}@grufos.org`,
+  image: p.data.image,
+  location: p.data.location || '',
+}));
+---
+
+<Layout title="Acceso para Fotógrafos | GRUFOS">
+  <LoginForm photographers={photographersData} client:load />
+</Layout>

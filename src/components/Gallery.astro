@@ -15,4 +15,4 @@ const photos = photographer
   : allPhotos;
 ---
 
-<GalleryComponent photos={photos} type={photographer?"personal":"intro"} client:load />
+<GalleryComponent photos={photos} type={photographer?"personal":"intro"} photographerId={photographer} client:load />

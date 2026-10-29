@@ -7,6 +7,5 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [react()],
   site: "https://liamleeproduction-cloud.github.io",
-  base: "/grufos-page/",
   // trailingSlash: "always"
 });

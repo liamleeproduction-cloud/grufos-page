@@ -1,23 +1,25 @@
 ---
 import '../../styles/pages/slug.scss';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Gallery from '../../components/Gallery.astro';
 import SocialMedia  from '../../components/SocialMedia/SocialMedia.astro'
+import PhotographerProfileHeader from '../../components/PhotographerProfileHeader.tsx';
 
 export async function getStaticPaths() {
   const photographers = await getCollection('photographers');
   return photographers.map(photographer => ({
-    params: { slug: photographer.slug },
+    params: { slug: photographer.id },
     props: { photographer },
   }));
 }
 
 const { photographer } = Astro.props;
-const { Content } = await photographer.render();
+const { Content } = await render(photographer);
 ---
 
 <Layout title={photographer.data.name}>
+  <PhotographerProfileHeader photographerId={photographer.data.uniqueId} defaultName={photographer.data.name} client:load />
   <div class="photographer-header">
     <svg viewBox="0 0 50 50">
       <defs>

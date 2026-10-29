@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProfileEditor from '../components/ProfileEditor.tsx';
+import { getCollection } from 'astro:content';
+
+const photographers = await getCollection('photographers');
+const allPhotos = await getCollection('photos');
+
+const photographersData = photographers.map((p) => ({
+  uniqueId: p.data.uniqueId,
+  name: p.data.name,
+  email: p.data.social?.email || `${p.data.uniqueId}@grufos.org`,
+  image: p.data.image,
+  location: p.data.location || '',
+  about: p.body || '',
+  social: p.data.social || {},
+}));
+
+const photosData = allPhotos.map((photo) => ({
+  id: photo.id,
+  title: photo.data.title,
+  photographerId: photo.data.photographerId,
+  category: photo.data.category,
+  year: photo.data.year,
+  image: photo.data.image,
+  featured: photo.data.featured,
+}));
+---
+
+<Layout title="Mi Perfil & Galería | GRUFOS">
+  <ProfileEditor
+    initialPhotographers={photographersData}
+    initialPhotos={photosData}
+    client:load
+  />
+</Layout>
