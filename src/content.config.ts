@@ -32,7 +32,16 @@ const photosCollection = defineCollection({
   }),
 });
 
+const categoriesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/categories" }),
+  schema: z.object({
+    name: z.string(),
+    slug: z.string(),
+  }),
+});
+
 export const collections = {
   "photographers": photographersCollection,
   "photos": photosCollection,
+  "categories": categoriesCollection,
 };
