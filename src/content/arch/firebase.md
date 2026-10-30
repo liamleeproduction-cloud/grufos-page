@@ -259,3 +259,28 @@ collection: "photos"
 - Use the mapper functions for consistent data transformation
 - Images are automatically optimized - no manual conversion needed
 - The `base: '/grufos-page/'` config is required for GitHub Pages deployment
+
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyClq2PMUJ2aWS0jXwJK7VU5X0tpMup5_Yw",
+  authDomain: "grufos-29e52.firebaseapp.com",
+  projectId: "grufos-29e52",
+  storageBucket: "grufos-29e52.firebasestorage.app",
+  messagingSenderId: "519086967675",
+  appId: "1:519086967675:web:f7bb61a67f104d0d2d4bde",
+  measurementId: "G-RY458QX72X"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
