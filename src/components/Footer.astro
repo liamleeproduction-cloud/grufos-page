@@ -1,49 +1,52 @@
 ---
 import '../styles/components/Footer.scss';
-import { InstagramIcon, FacebookIcon, TwitterIcon, YoutubeIcon, SendIcon } from 'astro-feather';
+import { InstagramIcon, FacebookIcon, TwitterIcon, YoutubeIcon } from 'astro-feather';
 
 const year = new Date().getFullYear();
-
 ---
- <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>Colectivo GRUFOS</h3>
-                    <p>Por la pasion a la fotogragia.hello</p>
-                </div>
-                <div>
-                    <h4>Pagina</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/fotografos">Fotografos</a></li>
-                        <li><a href="/acerca">Acerca</a></li>
-                        <li><a href="/login">Acceso Fotógrafos</a></li>
-                    </ul>
-                </div>
 
-                <div>
-                    <!-- <h4>Newsletter</h4>
-                    <p>Subscribe to our latest updates</p>
-                    <div class="newsletter-form">
-                        <input type="email" placeholder="Your email">
-                        <button>
-                            <SendIcon />
-                        </button>
-                    </div> -->
-                </div> 
-                <div>
-                    <h4>Siguenos</h4>
-                    <div class="social-links">
-                        <a href="#"><InstagramIcon /></a>
-                        <a href="#"><FacebookIcon /></a>
-                        <a href="#"><TwitterIcon /></a>
-                        <a href="#"><YoutubeIcon /></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; {year} Colectivo GRUFOS. todos los derechos reservado.</p>
-            </div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3 class="footer-logo">GRUFOS</h3>
+        <p class="footer-desc">
+          Por la pasión a la fotografía. Colectivo artístico dedicado a explorar la luz, el espacio y la narrativa visual independiente.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/fotografos">Fotógrafos</a></li>
+          <li><a href="/acerca">Acerca de</a></li>
+          <li><a href="/login">Acceso Miembros</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Comunidad</h4>
+        <ul class="footer-links">
+          <li><a href="/fotografos">Directorio</a></li>
+          <li><a href="/perfil">Panel de Fotógrafo</a></li>
+          <li><a href="/acerca">Manifiesto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Síguenos</h4>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><InstagramIcon /></a>
+          <a href="#" aria-label="Facebook"><FacebookIcon /></a>
+          <a href="#" aria-label="Twitter"><TwitterIcon /></a>
+          <a href="#" aria-label="Youtube"><YoutubeIcon /></a>
         </div>
-    </footer>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} Colectivo GRUFOS. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>

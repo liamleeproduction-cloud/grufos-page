@@ -7,16 +7,26 @@ import PhotographerCard from '../../components/PhotographerCard.tsx';
 const photographers = await getCollection('photographers');
 ---
 
-<Layout title="Photographers">
-  <h1 class="page-title">Members</h1>
-  <div class="photographers-grid content">
-    {photographers.map(photographer => (
-      <PhotographerCard photographer={{
-        name: photographer.data.name,
-        uniqueId: photographer.data.uniqueId,
-        image: photographer.data.image,
-        location: photographer.data?.location || ""
-      }} client:load />
+<Layout title="Fotógrafos | GRUFOS">
+  <div class="photographers-header">
+    <span class="section-label">Colectivo GRUFOS</span>
+    <h1 class="page-title">Nuestros Fotógrafos</h1>
+    <p class="section-desc">
+      Artistas visuales independientes dedicados a capturar la esencia de diferentes perspectivas del mundo.
+    </p>
+  </div>
+
+  <div class="photographers-grid">
+    {photographers.map((photographer) => (
+      <PhotographerCard
+        photographer={{
+          name: photographer.data.name,
+          uniqueId: photographer.data.uniqueId,
+          image: photographer.data.image,
+          location: photographer.data?.location || '',
+        }}
+        client:load
+      />
     ))}
   </div>
 </Layout>

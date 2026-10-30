@@ -1,11 +1,10 @@
 .profile-banner {
-  background: linear-gradient(90deg, rgba(37, 99, 235, 0.25), rgba(15, 23, 42, 0.85));
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  border-radius: 10px;
-  max-width: 900px;
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  max-width: 860px;
   margin: 1.5rem auto 0.5rem;
   padding: 0.75rem 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 
   &__content {
     display: flex;
@@ -19,16 +18,16 @@
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    font-size: 0.9rem;
-    color: #e2e8f0;
+    font-size: 0.825rem;
+    color: #d4d4d8;
   }
 
   &__dot {
-    width: 8px;
-    height: 8px;
-    background-color: #22c55e;
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
     border-radius: 50%;
-    box-shadow: 0 0 6px #22c55e;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
   }
 
   &__actions {
@@ -40,23 +39,24 @@
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    background: #2563eb;
-    color: #fff;
-    padding: 0.45rem 0.85rem;
-    border-radius: 6px;
-    font-size: 0.825rem;
+    background: #ffffff;
+    color: #000000;
+    padding: 0.4rem 0.85rem;
+    border-radius: 4px;
+    font-size: 0.775rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 
     svg {
-      width: 14px;
-      height: 14px;
+      width: 13px;
+      height: 13px;
+      color: #000000;
     }
 
     &:hover {
-      background: #1d4ed8;
-      color: #fff;
+      background: #e4e4e7;
+      color: #000000;
       transform: translateY(-1px);
     }
   }

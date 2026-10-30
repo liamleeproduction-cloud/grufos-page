@@ -16,8 +16,10 @@
     "astro": "^7.4.4",
     "astro-feather": "^1.0.0",
     "pngjs": "^7.0.0",
+    "quill": "^2.0.3",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-quill-new": "^3.8.3",
     "sharp": "^0.35.5",
     "yet-another-react-lightbox": "^3.32.2"
   },

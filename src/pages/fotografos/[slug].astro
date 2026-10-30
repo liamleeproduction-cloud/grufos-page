@@ -36,16 +36,19 @@ const { Content } = await render(photographer);
 
   </div>
 
-  <div class="photographer-content content">
-    <img alt={photographer.data.name} src={photographer.data.image} />
+  <div class="photographer-content">
+    <div class="photographer-avatar-wrap">
+      <img alt={photographer.data.name} src={photographer.data.image} />
+    </div>
     <h1>{photographer.data.name}</h1>
+    {photographer.data.location && <span class="photographer-location-badge">📍 {photographer.data.location}</span>}
     <Content />
+    <SocialMedia social={photographer.data.social} />
   </div>
-  
-  
-  <SocialMedia social={photographer.data.social} />
 
-  <h2 class="gallery-title">Galeria</h2>
+  <div class="gallery-divider">
+    <h2>Galería de Fotografías</h2>
+  </div>
   <Gallery photographer={photographer.data.uniqueId} />
 
   <script>

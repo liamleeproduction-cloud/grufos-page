@@ -1,0 +1,229 @@
+/* ========================================================
+   RichTextEditor — Dark Quill overrides matching the site
+   ======================================================== */
+
+.rte-wrapper {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+
+  /* Hide the editor until Quill is ready to avoid flash */
+  .rte-container {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &--ready .rte-container {
+    opacity: 1;
+  }
+}
+
+.rte-loading {
+  padding: 1rem;
+  color: #52525b;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Quill Snow theme overrides ── */
+
+/* Toolbar */
+.rte-wrapper .ql-toolbar.ql-snow {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px 6px 0 0;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+/* Toolbar buttons & pickers */
+.rte-wrapper .ql-toolbar.ql-snow .ql-formats {
+  margin-right: 8px;
+}
+
+.rte-wrapper .ql-toolbar.ql-snow button,
+.rte-wrapper .ql-toolbar.ql-snow .ql-picker-label {
+  color: #a1a1aa;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+
+.rte-wrapper .ql-toolbar.ql-snow button:hover,
+.rte-wrapper .ql-toolbar.ql-snow button.ql-active,
+.rte-wrapper .ql-toolbar.ql-snow .ql-picker-label:hover,
+.rte-wrapper .ql-toolbar.ql-snow .ql-picker-label.ql-active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* SVG stroke icons */
+.rte-wrapper .ql-toolbar.ql-snow button .ql-stroke {
+  stroke: #a1a1aa;
+  transition: stroke 0.15s ease;
+}
+
+.rte-wrapper .ql-toolbar.ql-snow button:hover .ql-stroke,
+.rte-wrapper .ql-toolbar.ql-snow button.ql-active .ql-stroke {
+  stroke: #ffffff;
+}
+
+.rte-wrapper .ql-toolbar.ql-snow button .ql-fill {
+  fill: #a1a1aa;
+  transition: fill 0.15s ease;
+}
+
+.rte-wrapper .ql-toolbar.ql-snow button:hover .ql-fill,
+.rte-wrapper .ql-toolbar.ql-snow button.ql-active .ql-fill {
+  fill: #ffffff;
+}
+
+/* Picker options dropdown */
+.rte-wrapper .ql-toolbar.ql-snow .ql-picker-options {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.rte-wrapper .ql-toolbar.ql-snow .ql-picker-item {
+  color: #a1a1aa;
+
+  &:hover,
+  &.ql-selected {
+    color: #ffffff;
+  }
+}
+
+/* Header picker label text */
+.rte-wrapper .ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.rte-wrapper .ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  color: inherit;
+}
+
+/* Editor area */
+.rte-wrapper .ql-container.ql-snow {
+  background-color: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  min-height: 200px;
+}
+
+.rte-wrapper .ql-editor {
+  min-height: 200px;
+  color: #e4e4e7;
+  line-height: 1.75;
+  padding: 1rem 1.25rem;
+  caret-color: #ffffff;
+
+  &.ql-blank::before {
+    color: #52525b;
+    font-style: normal;
+    font-size: 0.9rem;
+  }
+
+  /* Headings */
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #d4d4d8;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Paragraphs */
+  p {
+    margin-bottom: 0.75rem;
+    color: #a1a1aa;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Strong / em */
+  strong { color: #ffffff; font-weight: 600; }
+  em     { color: #d4d4d8; }
+  u      { text-decoration-color: rgba(255, 255, 255, 0.4); }
+
+  /* Lists */
+  ul, ol {
+    padding-left: 1.5rem;
+    color: #a1a1aa;
+
+    li { margin-bottom: 0.25rem; }
+  }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    margin-left: 0;
+    padding-left: 1rem;
+    color: #71717a;
+    font-style: italic;
+  }
+
+  /* Links */
+  a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    transition: text-decoration-color 0.2s ease;
+
+    &:hover {
+      text-decoration-color: #ffffff;
+    }
+  }
+
+  /* Focus ring */
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Focus outline on container */
+.rte-wrapper .ql-container.ql-snow:focus-within {
+  border-color: rgba(255, 255, 255, 0.25);
+  transition: border-color 0.2s ease;
+}
+
+/* Link tooltip popup */
+.rte-wrapper .ql-tooltip {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  color: #e4e4e7;
+  z-index: 999;
+
+  input[type='text'] {
+    background-color: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 2px 6px;
+  }
+
+  a.ql-action,
+  a.ql-remove {
+    color: #a1a1aa;
+    &::after { color: #a1a1aa; }
+    &:hover  { color: #ffffff; }
+  }
+}

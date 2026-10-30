@@ -1,15 +1,20 @@
 ---
 import '../styles/components/Header.scss';
 import UserMenu from './UserMenu.tsx';
+import MobileNav from './MobileNav.tsx';
 ---
 <header class="header">
   <nav class="header__nav">
     <a href="/" class="header__logo">GRUFOS</a>
-    <div class="header__links">
-      <!-- <a href="/" class="header__link">Home</a> -->
-      <a href="/fotografos" class="header__link">Fotografos</a>
+
+    <!-- Desktop links (hidden on mobile ≤768px) -->
+    <div class="header__links header__links--desktop">
+      <a href="/fotografos" class="header__link">Fotógrafos</a>
       <a href="/acerca" class="header__link">Acerca</a>
       <UserMenu client:load />
     </div>
+
+    <!-- Mobile hamburger + drawer (visible only on ≤768px) -->
+    <MobileNav client:load />
   </nav>
 </header>

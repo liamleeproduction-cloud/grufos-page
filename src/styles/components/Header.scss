@@ -1,41 +1,85 @@
 @use '../global.scss';
 
 .header {
-  background-color: #000;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-  border-bottom: 1pz solid #333;
-  
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
   &__nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem;
-   
+    padding: 1.1rem 2rem;
+
+    @media (max-width: 768px) {
+      padding: 0.9rem 1.25rem;
+    }
   }
 
   &__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #ffffff;
     text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
+  /* Desktop link group — hidden on mobile */
   &__links {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.75rem;
+
+    &--desktop {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   &__link {
-    color: #d1d5db;
+    color: #a1a1aa;
     text-decoration: none;
-    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.25rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: #ffffff;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
     &:hover {
-      color: #fff;
+      color: #ffffff;
+
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
+
+/* MobileNav toggle is hidden on desktop — controlled inside MobileNav.scss */

@@ -3,9 +3,55 @@ import '../styles/pages/about.scss';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About Us">
-  <h1 class="page-title">About Us</h1>
-  <p class="about-text content">
-    This is the history of our photo gallery. We are a collective of photographers who want to share our work with the world.
-  </p>
+<Layout title="Acerca de Nosotros | GRUFOS">
+  <div class="about-hero">
+    <span class="section-label">Manifiesto Colectivo</span>
+    <h1 class="page-title">Acerca de GRUFOS</h1>
+    <p class="about-lead">
+      Una mirada honesta, pausada y sin artificios al arte visual contemporáneo.
+    </p>
+  </div>
+
+  <div class="about-manifesto">
+    <div class="about-grid">
+      <div class="about-pillar">
+        <h3>01 / Luz</h3>
+        <p>
+          Exploramos la luz natural y el contraste lumínico como el lenguaje primordial que define cada atmósfera y cada instante capturado.
+        </p>
+      </div>
+
+      <div class="about-pillar">
+        <h3>02 / Espacio</h3>
+        <p>
+          Desde la arquitectura urbana monumental hasta la inmensidad de los paisajes vírgenes, dialogamos con la escala y el silencio.
+        </p>
+      </div>
+
+      <div class="about-pillar">
+        <h3>03 / Mirada</h3>
+        <p>
+          Reunimos fotógrafos con voces autorales diversas, comprometidos con la autenticidad estética y la preservación visual.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-narrative">
+      <p>
+        GRUFOS nació como un espacio de convergencia para creadores visuales que creen en la fotografía como algo más que un registro digital fugaz. Creemos en el valor de la composición cuidada, en el respeto por el sujeto y en la fuerza de la obra compartida.
+      </p>
+      <p>
+        A través de exposiciones colectivas, proyectos documentales y esta plataforma digital abierta, nuestros miembros comparten su archivo vivo con una comunidad global de apasionados por el arte de la fotografía.
+      </p>
+
+      <div class="about-cta">
+        <a href="/fotografos" class="editor-btn editor-btn--primary">
+          Conocer a los Fotógrafos →
+        </a>
+        <a href="/" class="editor-btn editor-btn--outline">
+          Explorar Galería
+        </a>
+      </div>
+    </div>
+  </div>
 </Layout>

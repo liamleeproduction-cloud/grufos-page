@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import {
   getStoredPhotographer,
   loginPhotographer,
@@ -14,6 +14,11 @@ import {
   type CustomPhoto,
 } from '../utils/profileStorage';
 import './ProfileEditor.scss';
+// Quill CSS — loaded globally so styles apply even after lazy load
+import 'quill/dist/quill.snow.css';
+
+// Lazy-load the rich text editor (Quill needs `window`)
+const RichTextEditor = lazy(() => import('./RichTextEditor'));
 
 export interface PhotographerDetail extends PhotographerUser {
   about?: string;
@@ -72,7 +77,6 @@ export const ProfileEditor: React.FC<Props> = ({ initialPhotographers, initialPh
   });
 
   const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
-  const [previewTab, setPreviewTab] = useState<'edit' | 'preview'>('edit');
 
   useEffect(() => {
     setMounted(true);
@@ -167,7 +171,7 @@ export const ProfileEditor: React.FC<Props> = ({ initialPhotographers, initialPh
       name: trimmedName,
       image: image.trim() || session.image,
       location: location.trim(),
-      about: about.trim(),
+      about: about,
       social,
     };
 
@@ -409,57 +413,22 @@ export const ProfileEditor: React.FC<Props> = ({ initialPhotographers, initialPh
           </div>
 
           <div className="editor-card">
-            <div className="editor-card__header-row">
-              <h2 className="editor-card__title">
-                <span>📝 Acerca de Mí (About / Biografía)</span>
-              </h2>
-              <div className="editor-view-toggle">
-                <button
-                  type="button"
-                  className={`toggle-btn ${previewTab === 'edit' ? 'toggle-btn--active' : ''}`}
-                  onClick={() => setPreviewTab('edit')}
-                >
-                  Editar Texto
-                </button>
-                <button
-                  type="button"
-                  className={`toggle-btn ${previewTab === 'preview' ? 'toggle-btn--active' : ''}`}
-                  onClick={() => setPreviewTab('preview')}
-                >
-                  Vista Previa
-                </button>
-              </div>
-            </div>
+            <h2 className="editor-card__title">
+              <span>📝 Acerca de Mí (About / Biografía)</span>
+            </h2>
 
-            {previewTab === 'edit' ? (
-              <div className="form-field">
-                <textarea
-                  rows={8}
+            <div className="form-field">
+              <Suspense fallback={<div className="rte-fallback">Cargando editor de texto enriquecido…</div>}>
+                <RichTextEditor
                   value={about}
-                  onChange={(e) => setAbout(e.target.value)}
+                  onChange={setAbout}
                   placeholder="Escribe tu historia, especialidad fotográfica, exposiciones o visión artística..."
                 />
-                <span className="field-hint">Soporta texto y Markdown (títulos con ###, negritas con **, etc.)</span>
-              </div>
-            ) : (
-              <div className="about-preview-box">
-                {about ? (
-                  <div className="about-preview-content">
-                    {about.split('\n\n').map((paragraph, idx) => {
-                      if (paragraph.startsWith('###')) {
-                        return <h3 key={idx}>{paragraph.replace(/^###\s*/, '')}</h3>;
-                      }
-                      if (paragraph.startsWith('##')) {
-                        return <h2 key={idx}>{paragraph.replace(/^##\s*/, '')}</h2>;
-                      }
-                      return <p key={idx}>{paragraph}</p>;
-                    })}
-                  </div>
-                ) : (
-                  <p className="about-preview-empty">Aún no has escrito tu biografía.</p>
-                )}
-              </div>
-            )}
+              </Suspense>
+              <span className="field-hint">
+                Usa la barra de herramientas para aplicar formato: títulos, negrita, cursiva, listas, citas y enlaces.
+              </span>
+            </div>
           </div>
 
           <div className="editor-card">
