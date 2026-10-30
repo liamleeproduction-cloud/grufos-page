@@ -8,7 +8,7 @@
 
   svg {
     width: 100%;
-    max-height: 220px;
+    //max-height: 220px;
     opacity: 0;
     animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
@@ -18,10 +18,19 @@
       font-weight: 700;
       text-anchor: middle;
       letter-spacing: -0.02em;
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
 
       tspan {
         transition: font-size 0.5s ease-in-out;
       }
+    }
+
+    @media (max-width: 640px) {
+      width: 90%;
+    }
+
+    @media (min-width: 641px) {
+      width: 80%;
     }
   }
 }
