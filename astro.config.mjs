@@ -13,4 +13,5 @@ export default defineConfig({
       formats: ['webp', 'avif'],
     },
   },
+  output: 'static'
 });
