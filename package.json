@@ -15,6 +15,7 @@
     "@types/react-dom": "^19.3.0",
     "astro": "^7.4.4",
     "astro-feather": "^1.0.0",
+    "firebase": "^13.1.0",
     "pngjs": "^7.0.0",
     "quill": "^2.0.3",
     "react": "^19.3.1",
