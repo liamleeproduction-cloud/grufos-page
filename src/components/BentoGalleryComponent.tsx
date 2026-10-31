@@ -39,7 +39,11 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
       "bento-gallery__item--9",
       "bento-gallery__item--10",
     ];
-    setShuffledClassNames(classNames);
+
+    // Shuffle the class names randomly
+    const shuffled = [...classNames].sort(() => Math.random() - 0.5);
+
+    setShuffledClassNames(shuffled);
 
     const templateBento = ["default", "hello", "hey", "happy"];
 
@@ -47,7 +51,7 @@ const BentoGalleryComponent: React.FC<GalleryProps> = ({ photos }) => {
 
     setTemplateBento(selected)
 
-  }, []);
+  }, [photos]);
 
   const handleImageClick = (index: number) => {
     setCurrentIndex(index);
